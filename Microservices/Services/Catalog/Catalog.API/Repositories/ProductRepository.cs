@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Catalog.API.Repositories
 {
-    public class ProductRepository : IProducRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ICatalogContext _context;
 
