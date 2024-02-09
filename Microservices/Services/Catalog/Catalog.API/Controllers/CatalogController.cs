@@ -30,6 +30,14 @@ namespace Catalog.API.Controllers
             return Ok(products);
         }
 
+        [HttpGet("GetProductByName/{name}")]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByName(string name)
+        {
+            var products = await _repository.GetProductByName(name);
+            return Ok(products);
+        }
+
         [HttpGet("{id:length(24)}", Name = "GetProduct")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
